@@ -1,0 +1,19 @@
+# Root node_modules
+node_modules/
+
+# Backend build output
+backend/dist/
+backend/node_modules/
+
+# Frontend (handled by frontend/.gitignore too)
+frontend/node_modules/
+frontend/.next/
+frontend/.env*.local
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+*.log
