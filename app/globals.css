@@ -1,0 +1,217 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+/* Updated Theme */
+:root {
+  --background: #0a1628;
+  --foreground: #e8f4fd;
+  --card: #112240;
+  --card-foreground: #e8f4fd;
+  --popover: #112240;
+  --popover-foreground: #e8f4fd;
+  --primary: #00e5ff;
+  --primary-foreground: #0a1628;
+  --secondary: #1e3a5f;
+  --secondary-foreground: #8ab4cc;
+  --muted: #1e3a5f;
+  --muted-foreground: #8ab4cc;
+  --accent: #4fc3f7;
+  --accent-foreground: #0a1628;
+  --destructive: #ff5252;
+  --destructive-foreground: #e8f4fd;
+  --border: #1e3a5f;
+  --input: #112240;
+  --ring: #00e5ff;
+  --radius: 0.5rem;
+  
+  /* State colors */
+  --state-start: #2d1b69;
+  --state-accept: #00e5ff;
+  --state-active: #ffd54f;
+  --state-normal: #1a3a5c;
+  --epsilon: #7c4dff;
+  --success: #00e676;
+  --warning: #ffb74d;
+}
+
+.dark {
+  --background: #0a1628;
+  --foreground: #e8f4fd;
+  --card: #112240;
+  --card-foreground: #e8f4fd;
+  --popover: #112240;
+  --popover-foreground: #e8f4fd;
+  --primary: #00e5ff;
+  --primary-foreground: #0a1628;
+  --secondary: #1e3a5f;
+  --secondary-foreground: #8ab4cc;
+  --muted: #1e3a5f;
+  --muted-foreground: #A0B5C5;
+  --accent: #D2C1B6;
+  --accent-foreground: #1B3C53;
+  --destructive: #E57373;
+  --destructive-foreground: #F5F5F5;
+  --border: #456882;
+  --input: #234C6A;
+  --ring: #D2C1B6;
+}
+
+@theme inline {
+  --font-sans: 'Geist', 'Geist Fallback', system-ui, sans-serif;
+  --font-mono: 'Geist Mono', 'Geist Mono Fallback', monospace;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  
+  /* Custom state colors */
+  --color-state-start: var(--state-start);
+  --color-state-accept: var(--state-accept);
+  --color-state-active: var(--state-active);
+  --color-state-normal: var(--state-normal);
+  --color-epsilon: var(--epsilon);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Panel styling */
+.panel {
+  background: var(--card);
+  border: 1px solid var(--border);
+}
+
+/* Subtle animations */
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slide-up {
+  from { 
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to { 
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.2s ease-out;
+}
+
+.animate-slide-up {
+  animation: slide-up 0.3s ease-out;
+}
+
+.animate-scale-in {
+  animation: scale-in 0.2s ease-out;
+}
+
+/* Subtle pulse for active states */
+@keyframes subtle-pulse {
+  0%, 100% { 
+    box-shadow: 0 0 0 0 rgba(100, 181, 246, 0.4);
+  }
+  50% { 
+    box-shadow: 0 0 0 6px rgba(100, 181, 246, 0);
+  }
+}
+
+.pulse-active {
+  animation: subtle-pulse 2s ease-in-out infinite;
+}
+
+/* Focus ring */
+.focus-ring {
+  @apply focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background;
+}
+
+/* Custom range slider styling */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #00e5ff;
+  border: 2px solid #0a1628;
+  cursor: pointer;
+  box-shadow: 0 0 8px rgba(0, 229, 255, 0.5);
+  transition: all 0.2s ease;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+  box-shadow: 0 0 12px rgba(0, 229, 255, 0.8);
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #00e5ff;
+  border: 2px solid #0a1628;
+  cursor: pointer;
+  box-shadow: 0 0 8px rgba(0, 229, 255, 0.5);
+  transition: all 0.2s ease;
+}
+
+input[type="range"]::-moz-range-thumb:hover {
+  transform: scale(1.2);
+  box-shadow: 0 0 12px rgba(0, 229, 255, 0.8);
+}
+
+/* Smooth transitions for all interactive elements */
+button, input, select, textarea {
+  transition: all 0.2s ease;
+}

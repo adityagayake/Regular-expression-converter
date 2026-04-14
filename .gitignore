@@ -1,19 +1,19 @@
-# Root node_modules
+# Next.js
+.next/
 node_modules/
+.env*.local
 
-# Backend build output
+# Backend
 backend/dist/
 backend/node_modules/
 
-# Frontend (handled by frontend/.gitignore too)
+# Frontend subfolder (kept for reference, not deployed)
 frontend/node_modules/
 frontend/.next/
-frontend/.env*.local
 
-# OS
+# OS / Editor
 .DS_Store
 Thumbs.db
-
-# Editor
 .vscode/
 *.log
+tsconfig.tsbuildinfo
