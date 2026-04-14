@@ -1,12 +1,14 @@
 {
-  "name": "tafl-project-workspace",
+  "name": "regular-expression-converter",
+  "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "concurrently \"npm --prefix backend run dev\" \"npm --prefix frontend run dev -- --port 3000\"",
-    "build": "npm --prefix frontend run build && npm --prefix backend run build",
-    "start": "npm --prefix frontend run start -- --port 3000"
+    "dev": "npm --prefix frontend run dev",
+    "build": "npm --prefix frontend run build",
+    "start": "npm --prefix frontend run start",
+    "lint": "npm --prefix frontend run lint"
   },
-  "devDependencies": {
-    "concurrently": "^9.1.2"
+  "dependencies": {
+    "next": "16.2.0"
   }
 }
