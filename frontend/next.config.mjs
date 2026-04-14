@@ -6,14 +6,8 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  async rewrites() {
-    return [
-      {
-        source: '/api/:path*',
-        destination: 'http://localhost:4000/:path*',
-      },
-    ];
-  },
+  // No rewrites needed — all API routes are Next.js edge functions.
+  // The Express backend (backend/) is not deployed to Vercel.
 }
 
 export default nextConfig
