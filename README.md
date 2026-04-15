@@ -484,15 +484,6 @@ The following test cases verify the correctness of all three algorithms:
 
 ---
 
-## Live Demo
-
-The application is deployed on Vercel and accessible at:
-
-**https://regular-expression-converter.vercel.app**
-
-*(URL may vary — check the Vercel dashboard for the exact deployment URL)*
-
----
 
 ## References
 
